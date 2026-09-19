@@ -1,0 +1,72 @@
+[gd_scene format=4 uid="uid://bedoo0pg2wmfl"]
+
+[ext_resource type="Texture2D" uid="uid://k2y6cmu27eku" path="res://kenney_platformer-pack-remastered/Spritesheets/spritesheet_ground.png" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://dg4cbcddjmitn" path="res://kenney_platformer-pack-remastered/Spritesheets/spritesheet_complete.png" id="1_0hol4"]
+[ext_resource type="Script" uid="uid://b0gg5dp2d4lv4" path="res://victory_item.gd" id="1_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://c6xahn28i8wst" path="res://killbox.tscn" id="3_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://cxoognry5vexl" path="res://player.tscn" id="4_kdubu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d21ai"]
+size = Vector2(0.0010868311, 0.0022581532)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj586"]
+atlas = ExtResource("1_0hol4")
+region = Rect2(2856, 272, 136, 136)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4d7sh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj586")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
+texture = ExtResource("1_0e48y")
+0:64/size_in_atlas = Vector2i(8, 5)
+0:64/0 = 0
+0:64/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63.849854, -40.018566, 64.209564, -40.378284, 64.02971, 32.644363, -64.209564, 33.72351)
+
+[sub_resource type="TileSet" id="TileSet_q6r6c"]
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_0hol4")
+
+[node name="Node2D" type="Node" unique_id=1655421912]
+
+[node name="victory item" type="Area2D" parent="." unique_id=893653498]
+scale = Vector2(12881.999, 4207.0005)
+script = ExtResource("1_q6r6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="victory item" unique_id=1232276995]
+position = Vector2(0.63157904, -0.13435939)
+scale = Vector2(0.9999998, 1)
+shape = SubResource("RectangleShape2D_d21ai")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="victory item" unique_id=1291232985]
+position = Vector2(0.631579, -0.13406226)
+scale = Vector2(1e-05, 2.772123e-05)
+sprite_frames = SubResource("SpriteFrames_4d7sh")
+animation = &"new_animation"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2124819822]
+tile_map_data = PackedByteArray("AAAAAAgAAgAAAEAAAAAIAAgAAgAAAEAAAAAQAAgAAgAAAEAAAAAYAAgAAgAAAEAAAAD4/wgAAgAAAEAAAADw/wgAAgAAAEAAAADo/wgAAgAAAEAAAAAtAAIAAgAAAEAAAAA1AAIAAgAAAEAAAABHAAIAAgAAAEAAAABPAAIAAgAAAEAAAABXAAIAAgAAAEAAAABkAP3/AgAAAEAAAABsAP3/AgAAAEAAAACXAAgAAgAAAEAAAACfAAgAAgAAAEAAAACrABcAAgAAAEAAAACjABcAAgAAAEAAAACbABcAAgAAAEAAAACTABcAAgAAAEAAAACLABcAAgAAAEAAAACDABcAAgAAAEAAAACDABIAAgAAAEAAAACDAA0AAgAAAEAAAACDAAgAAgAAAEAAAAB7AAgAAgAAAEAAAACzABcAAgAAAEAAAAC9ABIAAgAAAEAAAADFABIAAgAAAEAAAADNABIAAgAAAEAAAADZAA0AAgAAAEAAAADhAA0AAgAAAEAAAADtAAMAAgAAAEAAAAD1AAMAAgAAAEAAAADtAPb/AgAAAEAAADD9AAMAAgAAAEAAAAAFAQMAAgAAAEAAAAD1APb/AgAAAEAAADD9APb/AgAAAEAAADAFAfb/AgAAAEAAADANAfb/AgAAAEAAADANARQAAgAAAEAAAAD7ABQAAgAAAEAAAADzABQAAgAAAEAAAACtAAIAAgAAAEAAAAC1AAIAAgAAAEAAAADAAPz/AgAAAEAAAADIAPz/AgAAAEAAAADVAPj/AgAAAEAAAADdAPj/AgAAAEAAAAAdAfb/AgAAAEAAAADtAOr/AgAAAEAAAAD1AOr/AgAAAEAAAAD9AOr/AgAAAEAAAAAFAer/AgAAAEAAAAANAer/AgAAAEAAAAAVAer/AgAAAEAAAAAdAer/AgAAAEAAAADtAOX/AgAAAEAAAADtAOD/AgAAAEAAAAAlAfb/AgAAAEAAAAAlAer/AgAAAEAAAABMAfv/AgAAAEAAAABUAfv/AgAAAEAAAABcAfv/AgAAAEAAAABmAfX/AgAAAEAAAABxAe//AgAAAEAAAACcAfP/AgAAAEAAAAD8AeX/AgAAAEAAAAAEAuX/AgAAAEAAAAC9Aev/AgAAAEAAAADVAev/AgAAAEAAAAAlAeX/AgAAAEAAAAAlAeD/AgAAAEAAAAAlAdv/AgAAAEAAAADtANv/AgAAAEAAAAD2ANv/AgAAAEAAAAAAAdv/AgAAAEAAAAAJAdv/AgAAAEAAAAATAdv/AgAAAEAAAAAcAdv/AgAAAEAAAAAVARQAAgAAAEAAAAAdARQAAgAAAEAAAAAlARQAAgAAAEAAAADFAeb/AgAAAEAAAADFAdr/AgAAAEAAAADNAdr/AgAAAEAAAADNAeb/AgAAAEAAAADdAev/AgAAAEAAAAAMAuX/AgAAAEAAAAA=")
+tile_set = SubResource("TileSet_q6r6c")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=445326804]
+z_index = -2
+offset_left = -5630.0
+offset_top = -4639.0
+offset_right = 94370.0
+offset_bottom = 5361.0
+color = Color(0.6509804, 1, 1, 1)
+
+[node name="Area2D" parent="." unique_id=1786706669 instance=ExtResource("3_q6r6c")]
+position = Vector2(131, 4)
+
+[node name="player" parent="." unique_id=1792091691 instance=ExtResource("4_kdubu")]
+position = Vector2(-61, 3)
+
+[connection signal="body_entered" from="victory item" to="victory item" method="_on_body_entered"]

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ckuaykqaxlert"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6atxg"]
+font_size = 100
+font_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
+
+[node name="VictoryScreen" type="Control" unique_id=1472057831]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1580907462]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(0, 1, 1, 1)
+
+[node name="Label" type="Label" parent="." unique_id=593578745]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 224.0
+offset_right = 816.0
+offset_bottom = 361.0
+text = "YOU WIN!"
+label_settings = SubResource("LabelSettings_6atxg")
+horizontal_alignment = 1
+vertical_alignment = 1
